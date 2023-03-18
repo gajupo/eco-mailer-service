@@ -1,0 +1,9 @@
+version: '3'
+services:
+  app:
+    build: .
+    image: eco-mailer
+    container_name: eco-mailer
+    env_file: .env
+    ports:
+      - 8080:3000
