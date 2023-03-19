@@ -5,10 +5,12 @@
   "main": "index.js",
   "author": "Gaudencio Jurado",
   "license": "MIT",
+  "scripts": {
+    "dev": "nodemon",
+    "build": "tsc",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
   "dependencies": {
-    "@types/express": "^4.17.17",
-    "@types/node": "^18.15.3",
-    "@types/nodemailer": "^6.4.7",
     "body-parser": "^1.20.2",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
@@ -18,11 +20,16 @@
     "mailchimp-api-v3": "^1.15.0",
     "nodemailer": "^6.9.1",
     "reflect-metadata": "^0.1.13",
-    "ts-node": "^10.9.1",
-    "typescript": "^5.0.2",
-    "winston": "^3.8.2"
+    "winston": "^3.8.2",
+    "winston-daily-rotate-file": "^4.7.1"
   },
   "devDependencies": {
-    "@types/lodash": "^4.14.191"
+    "@types/express": "^4.17.17",
+    "@types/lodash": "^4.14.191",
+    "@types/node": "^18.15.3",
+    "@types/nodemailer": "^6.4.7",
+    "nodemon": "^2.0.21",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.0.2"
   }
 }

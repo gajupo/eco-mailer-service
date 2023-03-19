@@ -14,7 +14,7 @@ WORKDIR /usr/app
 COPY --from=ts-compiler /usr/app/package*.json ./
 COPY --from=ts-compiler /usr/app/yarn.lock ./
 COPY --from=ts-compiler /usr/app/dist ./dist
-COPY --from=ts-compiler /usr/app/src/fonts ./dist/fonts
+COPY --from=ts-compiler /usr/app/src/templates ./dist/templates
 # Install dependencies
 RUN yarn install --production
 

@@ -6,4 +6,4 @@ services:
     container_name: eco-mailer
     env_file: .env
     ports:
-      - 8080:3000
+      - 8086:3000
