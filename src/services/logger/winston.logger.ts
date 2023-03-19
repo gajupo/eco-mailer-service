@@ -1,6 +1,7 @@
 import { injectable } from 'inversify';
 import { createLogger, format, transports } from 'winston';
 import { ILogger } from '../../interfaces/logger.interface';
+import DailyRotateFile from 'winston-daily-rotate-file';
 
 const { combine, timestamp, printf } = format;
 
@@ -17,8 +18,21 @@ export class WinstonLogger implements ILogger {
       format: combine(timestamp(), logFormat),
         transports: [
             new transports.Console(),
-            new transports.File({ filename: 'error.log', level: 'error' }),
-            new transports.File({ filename: 'combined.log' }),
+            new DailyRotateFile({
+              level: 'error',
+              filename: 'logs/error-%DATE%.log',
+              datePattern: 'YYYY-MM-DD',
+              zippedArchive: true,
+              maxSize: '10m',
+              maxFiles: '14d',
+            }),
+            new DailyRotateFile({
+              filename: 'logs/application-%DATE%.log',
+              datePattern: 'YYYY-MM-DD',
+              zippedArchive: true,
+              maxSize: '20m',
+              maxFiles: '14d',
+            }),
         ],
     });
   }
