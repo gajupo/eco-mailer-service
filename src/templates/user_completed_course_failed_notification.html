@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Course Completion</title>
+  </head>
+  <body>
+    <h1>Sorry, <%= user.name %>!</h1>
+    <p>
+      You have failed the course: <%= course.title %>.
+    </p>
+    <p>
+      Score: <%= graddingResult.lastScoreObtained %> out of <%= course.passingMinimumGrade %>
+    </p>
+    <p>
+      <strong>
+        Please go back to the course and take the retake exam.
+      </strong>
+    </p>
+  </body>
+</html>

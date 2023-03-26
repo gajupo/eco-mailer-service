@@ -1,4 +1,4 @@
-import { interfaces, controller, httpPost, requestBody } from 'inversify-express-utils';
+import { interfaces, controller, httpPost, requestBody, httpGet } from 'inversify-express-utils';
 import { inject } from 'inversify';
 import { TYPES } from '../config/types';
 import { SendEmailRequest, IEmailService } from '../interfaces/email.interface';
@@ -11,22 +11,42 @@ export class EmailController implements interfaces.Controller {
     @inject(TYPES.Logger) private logger: ILogger,
     ) {}
 
-  @httpPost('/course-completion')
-  public async sendCourseCompletionEmail(
-    @requestBody() sendEmailRequest: SendEmailRequest,
-  ): Promise<any> {
-    await this.emailService.sendCourseCompletionEmail(sendEmailRequest);
-    this.logger.info(`Email for course completion sent to ${sendEmailRequest.to}`);
-    // response a success message in json format
-    return { message: 'Email sent successfully' };
-  }
-
   @httpPost('/new-purchase-notification')
   public async sendNewPurchaseNotificationEmail(
     @requestBody() sendEmailRequest: SendEmailRequest,
   ): Promise<any> {
     await this.emailService.sendNewPurchaseNotificationEmail(sendEmailRequest);
     this.logger.info(`Email for new purchase notification sent to ${sendEmailRequest.to}`);
+    // response a success message in json format
+    return { message: 'Email sent successfully' };
+  }
+
+  @httpPost('/user-purchase-notification')
+  public async sendUserPurchaseNotificationEmail(
+    @requestBody() sendEmailRequest: SendEmailRequest,
+  ): Promise<any> {
+    await this.emailService.sendUserPurchaseNotificationEmail(sendEmailRequest);
+    this.logger.info(`Email for user purchase notification sent to ${sendEmailRequest.to}`);
+    // response a success message in json format
+    return { message: 'Email sent successfully' };
+  }
+
+  @httpPost('/user-completed-course-notification')
+  public async sendUserCompletedCourseNotificationEmail(
+    @requestBody() sendEmailRequest: SendEmailRequest,
+  ): Promise<any> {
+    await this.emailService.sendUserCompletedCourseNotificationEmail(sendEmailRequest);
+    this.logger.info(`Email for user completed course notification sent to ${sendEmailRequest.to}`);
+    // response a success message in json format
+    return { message: 'Email sent successfully' };
+  }
+
+  @httpPost('/user-completed-course-failed-notification')
+  public async sendUserCompletedCourseFailedNotificationEmail(
+    @requestBody() sendEmailRequest: SendEmailRequest,
+  ): Promise<any> {
+    await this.emailService.sendUserCompletedCourseFailedNotificationEmail(sendEmailRequest);
+    this.logger.info(`Email for user completed course failed notification sent to ${sendEmailRequest.to}`);
     // response a success message in json format
     return { message: 'Email sent successfully' };
   }

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Course Completion</title>
+  </head>
+  <body>
+    <h1>Congratulations, <%= user.name %>!</h1>
+    <p>
+      You have successfully completed the course: <%= course.title %>.
+    </p>
+    <p>
+      Score: <%= graddingResult.lastScoreObtained %> out of <%= course.passingMinimumGrade %>
+    </p>
+    <p>
+      <strong>
+        You can now download your certificate.
+      </strong>
+  </body>
+</html>

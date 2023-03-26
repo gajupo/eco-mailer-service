@@ -19,6 +19,8 @@ export interface IEmailProvider {
 
 export interface IEmailService {
   sendEmail(sendEmailOptions: SendEmailOptions): Promise<void>;
-  sendCourseCompletionEmail(sendEmailRequest: SendEmailRequest): Promise<void>;
   sendNewPurchaseNotificationEmail(sendEmailRequest: SendEmailRequest): Promise<void>;
+  sendUserPurchaseNotificationEmail(sendEmailRequest: SendEmailRequest): Promise<void>;
+  sendUserCompletedCourseNotificationEmail(sendEmailRequest: SendEmailRequest): Promise<void>;
+  sendUserCompletedCourseFailedNotificationEmail(sendEmailRequest: SendEmailRequest): Promise<void>;
 }
