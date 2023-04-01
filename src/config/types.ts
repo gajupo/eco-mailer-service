@@ -5,6 +5,7 @@ const TYPES = {
     Logger: Symbol('Logger'),
     ErrorMiddleware: Symbol('ErrorMiddleware'),
     TemplateService: Symbol('TemplateService'),
+    SpacesService: Symbol('SpacesService'),
   };
   
   export { TYPES };

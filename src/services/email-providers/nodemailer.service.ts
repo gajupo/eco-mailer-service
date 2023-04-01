@@ -19,6 +19,7 @@ export class NodeMailerService implements IEmailProvider {
       subject: sendEmailOptions.subject,
       text: sendEmailOptions.text,
       html: sendEmailOptions.html,
+      attachments: sendEmailOptions.attachments,
     };
 
     await this.transporter.sendMail(mailOptions);

@@ -1,7 +1,7 @@
 import { interfaces, controller, httpPost, requestBody, httpGet } from 'inversify-express-utils';
 import { inject } from 'inversify';
 import { TYPES } from '../config/types';
-import { SendEmailRequest, IEmailService } from '../interfaces/email.interface';
+import { SendEmailRequest, IEmailService, SendEmailResponseWithAttachment } from '../interfaces/email.interface';
 import { ILogger } from '../interfaces/logger.interface';
 
 @controller('/sendemail')
@@ -33,10 +33,10 @@ export class EmailController implements interfaces.Controller {
 
   @httpPost('/user-completed-course-notification')
   public async sendUserCompletedCourseNotificationEmail(
-    @requestBody() sendEmailRequest: SendEmailRequest,
+    @requestBody() SendEmailResponseWithAttachment: SendEmailResponseWithAttachment,
   ): Promise<any> {
-    await this.emailService.sendUserCompletedCourseNotificationEmail(sendEmailRequest);
-    this.logger.info(`Email for user completed course notification sent to ${sendEmailRequest.to}`);
+    await this.emailService.sendUserCompletedCourseNotificationEmail(SendEmailResponseWithAttachment);
+    this.logger.info(`Email for user completed course notification sent to ${SendEmailResponseWithAttachment.to}`);
     // response a success message in json format
     return { message: 'Email sent successfully' };
   }

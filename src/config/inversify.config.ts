@@ -13,6 +13,8 @@ import { TemplateServiceImpl } from '../services/template.service';
 import { IEmailProvider } from '../interfaces/email.provider.interface';
 import { NodeMailerService } from '../services/email-providers/nodemailer.service';
 import { MailChimpService } from '../services/email-providers/mailchimp.service';
+import { ISpacesService } from '../interfaces/spaces.service.interface';
+import { SpacesService } from '../services/spaces.service';
 
 export const container = new Container();
 
@@ -21,6 +23,7 @@ container.bind<IEmailService>(TYPES.EmailService).to(EmailService);
 container.bind<ILogger>(TYPES.Logger).to(WinstonLogger);
 container.bind<IErrorMiddleware>(TYPES.ErrorMiddleware).to(ErrorMiddleware);
 container.bind<ITemplateService>(TYPES.TemplateService).to(TemplateServiceImpl);
+container.bind<ISpacesService>(TYPES.SpacesService).to(SpacesService);
 
 // Choose the email provider: NodeMailerService or MailChimpService based on the environment variable EMAIL_PROVIDER
 const emailProvider = process.env.EMAIL_PROVIDER || 'nodemailer';
