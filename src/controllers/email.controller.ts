@@ -35,6 +35,7 @@ export class EmailController implements interfaces.Controller {
   public async sendUserCompletedCourseNotificationEmail(
     @requestBody() SendEmailResponseWithAttachment: SendEmailResponseWithAttachment,
   ): Promise<any> {
+    this.logger.info(`Payload content ${JSON.stringify(SendEmailResponseWithAttachment)}`)
     await this.emailService.sendUserCompletedCourseNotificationEmail(SendEmailResponseWithAttachment);
     this.logger.info(`Email for user completed course notification sent to ${SendEmailResponseWithAttachment.to}`);
     // response a success message in json format
