@@ -6,14 +6,14 @@ export interface SendEmailRequest {
   data: object;
 }
 
-// the attachment urls are an array of objects {filename: string, url: string}
+// the attachment is an array of objects { filename:string, content:base64 string}
 export interface SendEmailResponseWithAttachment {
   to: string;
   subject: string;
   text: string;
   templateName: string;
   data: object;
-  attachmentsUrls: Array<{ fileName?: string; url: string }>;
+  attachments: Array<{ filename?: string; content: string }>;
 }
 
 export interface SendEmailOptions {
@@ -21,7 +21,7 @@ export interface SendEmailOptions {
   subject: string;
   text: string;
   html: string;
-  attachments?: Array<{ filename: string; content: Buffer }>;
+  attachments?: Array<{ filename?: string; content: Buffer }>;
 }
 
 export interface IEmailProvider {

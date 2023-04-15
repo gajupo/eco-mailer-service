@@ -9,7 +9,7 @@ import { ErrorMiddleware } from './middlewares/error.middleware';
 const server = new InversifyExpressServer(container);
 server.setConfig((app) => {
   app.use(bodyParser.urlencoded({ extended: true }));
-  app.use(bodyParser.json());
+  app.use(bodyParser.json({ limit: '50mb' }));
 });
 
 const app = server.build();

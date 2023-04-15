@@ -35,7 +35,6 @@ export class EmailController implements interfaces.Controller {
   public async sendUserCompletedCourseNotificationEmail(
     @requestBody() SendEmailResponseWithAttachment: SendEmailResponseWithAttachment,
   ): Promise<any> {
-    this.logger.info(`Payload content ${JSON.stringify(SendEmailResponseWithAttachment)}`)
     await this.emailService.sendUserCompletedCourseNotificationEmail(SendEmailResponseWithAttachment);
     this.logger.info(`Email for user completed course notification sent to ${SendEmailResponseWithAttachment.to}`);
     // response a success message in json format
@@ -48,6 +47,16 @@ export class EmailController implements interfaces.Controller {
   ): Promise<any> {
     await this.emailService.sendUserCompletedCourseFailedNotificationEmail(sendEmailRequest);
     this.logger.info(`Email for user completed course failed notification sent to ${sendEmailRequest.to}`);
+    // response a success message in json format
+    return { message: 'Email sent successfully' };
+  }
+
+  @httpPost('/user-diploma-notification')
+  public async sendUserDiplomaNotificationEmail(
+    @requestBody() SendEmailResponseWithAttachment: SendEmailResponseWithAttachment,
+  ): Promise<any> {
+    await this.emailService.sendUserDiplomaNotificationEmail(SendEmailResponseWithAttachment);
+    this.logger.info(`Email for user diploma notification sent to ${SendEmailResponseWithAttachment.to}`);
     // response a success message in json format
     return { message: 'Email sent successfully' };
   }

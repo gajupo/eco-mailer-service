@@ -46,26 +46,23 @@ export class EmailService implements IEmailService {
   public async sendUserCompletedCourseNotificationEmail(SendEmailResponseWithAttachment: SendEmailResponseWithAttachment): Promise<void> {
     const html = await this.templateService.render('user_completed_course_notification', SendEmailResponseWithAttachment.data);
     
-    // Download all attachments from Spaces concurrently
-    const attachmentsPromises = SendEmailResponseWithAttachment.attachmentsUrls.map(async (attachmentInfo) => {
-      const filePath = this.spacesService.extractPathFromUrl(attachmentInfo.url);
-      // validate if attachmentInfo.filename is undefined, extractFileNameFromPath will return the last part of the path
-      const fileName = attachmentInfo.fileName || this.spacesService.extractFileNameFromPath(filePath);
+    const attachments: Array<{ filename?: string; content: Buffer }> = [];
 
-      const attachmentBuffer = await this.spacesService.downloadFile(filePath);
-      return {
-        filename: fileName,
-        content: attachmentBuffer,
-      };
-    });
-    const attachments = await Promise.all(attachmentsPromises);
+    for (const attachment of SendEmailResponseWithAttachment.attachments) {
+        // convert the attachment.content to a buffer
+        const buffer = Buffer.from(attachment.content, 'base64');
+        attachments.push({
+            filename: attachment.filename,
+            content: buffer,
+        });
+    }
 
     const sendEmailOptions: SendEmailOptions = {
         to: SendEmailResponseWithAttachment.to,
         subject: SendEmailResponseWithAttachment.subject,
         text: SendEmailResponseWithAttachment.text,
         html,
-        attachments,
+        attachments
     };
     await this.sendEmail(sendEmailOptions);
   }
@@ -94,26 +91,23 @@ export class EmailService implements IEmailService {
   public async sendUserDiplomaNotificationEmail(SendEmailResponseWithAttachment: SendEmailResponseWithAttachment): Promise<void> {
     const html = await this.templateService.render('user_diploma_notification', SendEmailResponseWithAttachment.data);
 
-    // Download all attachments from Spaces concurrently
-    const attachmentsPromises = SendEmailResponseWithAttachment.attachmentsUrls.map(async (attachmentInfo) => {
-      const filePath = this.spacesService.extractPathFromUrl(attachmentInfo.url);
-      // validate if attachmentInfo.filename is undefined, extractFileNameFromPath will return the last part of the path
-      const fileName = attachmentInfo.fileName || this.spacesService.extractFileNameFromPath(filePath);
+    const attachments: Array<{ filename?: string; content: Buffer }> = [];
 
-      const attachmentBuffer = await this.spacesService.downloadFile(filePath);
-      return {
-        filename: fileName,
-        content: attachmentBuffer,
-      };
-    });
-    const attachments = await Promise.all(attachmentsPromises);
-
+    for (const attachment of SendEmailResponseWithAttachment.attachments) {
+        // convert the attachment.content to a buffer
+        const buffer = Buffer.from(attachment.content, 'base64');
+        attachments.push({
+            filename: attachment.filename,
+            content: buffer,
+        });
+    }
+    
     const sendEmailOptions: SendEmailOptions = {
         to: SendEmailResponseWithAttachment.to,
         subject: SendEmailResponseWithAttachment.subject,
         text: SendEmailResponseWithAttachment.text,
         html,
-        attachments,
+        attachments
     };
     await this.sendEmail(sendEmailOptions);
   }
