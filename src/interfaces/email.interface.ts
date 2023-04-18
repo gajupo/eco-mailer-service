@@ -35,4 +35,5 @@ export interface IEmailService {
   sendUserCompletedCourseNotificationEmail(SendEmailResponseWithAttachment: SendEmailResponseWithAttachment): Promise<void>;
   sendUserCompletedCourseFailedNotificationEmail(sendEmailRequest: SendEmailRequest): Promise<void>;
   sendUserDiplomaNotificationEmail(SendEmailResponseWithAttachment: SendEmailResponseWithAttachment): Promise<void>;
+  sendUserConstanciaNotificationEmail(SendEmailResponseWithAttachment: SendEmailResponseWithAttachment): Promise<void>;
 }

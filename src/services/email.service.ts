@@ -111,4 +111,16 @@ export class EmailService implements IEmailService {
     };
     await this.sendEmail(sendEmailOptions);
   }
+
+  public async sendUserConstanciaNotificationEmail(SendEmailResponseWithAttachment: SendEmailResponseWithAttachment): Promise<void> {
+    const html = await this.templateService.render('user_constancia_notification', SendEmailResponseWithAttachment.data);
+    
+    const sendEmailOptions: SendEmailOptions = {
+        to: SendEmailResponseWithAttachment.to,
+        subject: SendEmailResponseWithAttachment.subject,
+        text: SendEmailResponseWithAttachment.text,
+        html,
+    };
+    await this.sendEmail(sendEmailOptions);
+  }
 }

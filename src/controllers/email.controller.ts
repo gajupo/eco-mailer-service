@@ -60,4 +60,14 @@ export class EmailController implements interfaces.Controller {
     // response a success message in json format
     return { message: 'Email sent successfully' };
   }
+
+  @httpPost('/user-constancia-notification')
+  public async sendUserConstanciaNotificationEmail(
+    @requestBody() SendEmailResponseWithAttachment: SendEmailResponseWithAttachment,
+  ): Promise<any> {
+    await this.emailService.sendUserConstanciaNotificationEmail(SendEmailResponseWithAttachment);
+    this.logger.info(`Email for user constancia notification sent to ${SendEmailResponseWithAttachment.to}`);
+    // response a success message in json format
+    return { message: 'Email sent successfully' };
+  }
 }
