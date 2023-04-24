@@ -1,78 +1,82 @@
-<!DOCTYPE html>
-<html>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
   <head>
-    <title>Certificate Obtained</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <style>
-      body {
-        background-color: #D1D1D1;
-        font-family: Arial, sans-serif;
-        margin: 0;
-        padding: 0;
-        color: #8B8B8B;
-      }
-      .container {
-        background-color: #ffffff;
-        border-radius: 15px;
-        max-width: 600px;
-        margin: 50px auto;
-        padding: 30px;
-        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-      }
-      h1 {
-        text-align: left;
-        font-size: 24px;
-        color: #333;
-        margin-bottom: 50px;
-      }
-      p {
-        font-size: 16px;
-        line-height: 1.5;
-        margin-bottom: 50px;
-      }
-      strong {
-        font-weight: bold;
-      }
-      .logo {
-        display: block;
-        max-width: 100%;
-        height: auto;
-        margin: 0 auto 50px;
-      }
-      .certificate-number {
-        border: 1px solid #b1b1b1;
-        padding: 15px;
-        text-align: center;
-        margin-bottom: 50px;
-        font-weight: bold;
-      }
-      @media screen and (max-width: 600px) {
-        .container {
-          margin: 50px 15px;
-          padding: 15px;
-        }
-      }
-    </style>
+    <link rel="stylesheet" type="text/css" href="css/app.css">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>ECO Online University</title>
+    <!-- <style> -->
   </head>
   <body>
-    <div class="container">
-      <img class="logo" src="https://eco-academy-storage.sfo3.digitaloceanspaces.com/public/ef5cb78d029227a2cdca59b8fe4c3b8d.png" alt="ECO Academy">
-      <h1>Hola <%= templateDate.v_user_name %></h1>
-      <p>
-        Felicidades por completar exitosamente el Training <%= templateDate.v_course_title %> en línea, en el que ha sido considerado <strong>"COMPETENTE"</strong> y lo hace acreedor al certificado adjunto.
-      </p>
-      <div class="certificate-number">
-        Número de Certificado: <%= templateDate.v_certificate_number %>
-      </div>
-      <p>
-        Agradecemos su preferencia en nuestros servicios y sin otro particular, nos reiteramos a sus órdenes.
-      </p>
-      <p>
-        Atentamente,
-      </p>
-      <p>
-        <strong>ECO, Corporación Empresarial México SA de CV</strong>
-      </p>
-    </div>
+    <span class="preheader"></span>
+    <table class="body">
+      <tr>
+        <td class="center" align="center" valign="top">
+          <center>
+            
+            <table align="center" class="spacer float-center"><tbody><tr><td height="30" style="font-size:30px;line-height:30px;">&nbsp;</td></tr></tbody></table> 
+            
+            <table align="center" class="container radius p-x float-center"><tbody><tr><td>
+            
+              <table class="spacer"><tbody><tr><td height="16" style="font-size:16px;line-height:16px;">&nbsp;</td></tr></tbody></table> 
+            
+              <center>
+                <img src="https://eco-academy-storage.sfo3.digitaloceanspaces.com/public/ef5cb78d029227a2cdca59b8fe4c3b8d.png" alt align="center" class="float-center eco-logo-medium">
+              </center>
+            
+              <table class="spacer"><tbody><tr><td height="30" style="font-size:30px;line-height:30px;">&nbsp;</td></tr></tbody></table> 
+              <table class="row"><tbody><tr>
+                <th class="small-12 large-12 columns first last"><table><tbody><tr><th>
+                  <p><strong>Hola <%= v_user_name %>,</%=></strong></p>
+                </th>
+<th class="expander"></th></tr></tbody></table></th>
+              </tr></tbody></table>
+              <table class="row"><tbody><tr>
+                <th class="small-12 large-12 columns first last"><table><tbody><tr><th>
+                  <p class="text-color-l-gray" style="text-align: justify;">
+                    Felicidades por completar exitosamente el Training <%= v_course_title %> en línea, en el que ha sido considerado <strong>"COMPETENTE"</strong> y lo hace acreedor al certificado adjunto.
+                  </%=></p>
+                </th>
+<th class="expander"></th></tr></tbody></table></th>
+              </tr></tbody></table>
+              <table class="row primary"><tbody><tr>
+                <th class="small-12 large-12 columns first last"><table><tbody><tr><th>
+                  <table class="callout"><tbody><tr><th class="callout-inner">
+                    <p class="text-center">Número de Certificado: <%= v_certificate_number %></%=></p>
+                  </th><th class="expander"></th></tr></tbody></table>
+                </th>
+<th class="expander"></th></tr></tbody></table></th>
+              </tr></tbody></table>
+              <table class="row"><tbody><tr>
+                <th class="small-12 large-12 columns first last"><table><tbody><tr><th>
+                    <p class="text-color-l-gray">Agradecemos su preferencia en nuestros servicios y sin otro particular, nos reiteramos a sus órdenes.</p>
+                </th>
+<th class="expander"></th></tr></tbody></table></th>
+              </tr></tbody></table>
+              <table class="row"><tbody><tr>
+                <th class="small-12 large-12 columns first last"><table><tbody><tr><th>
+                    <p class="text-color-l-gray">Atentamente,</p>
+                </th>
+<th class="expander"></th></tr></tbody></table></th>
+              </tr></tbody></table>
+              <table class="row"><tbody><tr>
+                <th class="small-12 large-12 columns first last"><table><tbody><tr><th>
+                    <p class="text-color-l-gray"><strong>ECO, Corporación Empresarial México SA de CV</strong></p>
+                </th>
+<th class="expander"></th></tr></tbody></table></th>
+              </tr></tbody></table>
+            </td></tr></tbody></table>
+            <table align="center" class="spacer float-center"><tbody><tr><td height="30" style="font-size:30px;line-height:30px;">&nbsp;</td></tr></tbody></table> 
+            
+          </center>
+        </td>
+      </tr>
+    </table>
+    <!-- prevent Gmail on iOS font size manipulation -->
+   <div style="display:none; white-space:nowrap; font:15px courier; line-height:0;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </div>
   </body>
 </html>
+

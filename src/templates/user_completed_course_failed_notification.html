@@ -1,67 +1,84 @@
-<!DOCTYPE html>
-<html>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
   <head>
-    <title>Course Completion</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <style>
-      body {
-        background-color: #f0f0f0;
-        font-family: Arial, sans-serif;
-        margin: 0;
-        padding: 0;
-      }
-      .container {
-        background-color: #ffffff;
-        border-radius: 15px;
-        max-width: 600px;
-        margin: 30px auto;
-        padding: 30px;
-        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-      }
-      h1 {
-        text-align: center;
-        font-size: 24px;
-        color: #333;
-        margin-bottom: 15px;
-      }
-      p {
-        font-size: 16px;
-        color: #333;
-        line-height: 1.5;
-        margin-bottom: 15px;
-      }
-      strong {
-        font-weight: bold;
-      }
-      .logo {
-        display: block;
-        max-width: 100%;
-        height: auto;
-        margin: 0 auto 20px;
-      }
-      @media screen and (max-width: 600px) {
-        .container {
-          margin: 15px;
-          padding: 15px;
-        }
-      }
-    </style>
+    <link rel="stylesheet" type="text/css" href="css/app.css">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>ECO Online University</title>
+    <!-- <style> -->
   </head>
   <body>
-    <div class="container">
-      <img class="logo" src="https://eco-academy-storage.sfo3.digitaloceanspaces.com/public/ef5cb78d029227a2cdca59b8fe4c3b8d.png" alt="Eco Academy Logo">
-      <h1>Sorry, <%= user.name %>!</h1>
-      <p>
-        You have failed the course: <%= course.title %>.
-      </p>
-      <p>
-        Score: <%= memberCourseGraded.lastScoreObtained %> out of <%= course.passingMinimumGrade %>
-      </p>
-      <p>
-        <strong>
-          Please go back to the course and take the retake exam.
-        </strong>
-      </p>
-    </div>
+    <span class="preheader"></span>
+    <table class="body">
+      <tr>
+        <td class="center" align="center" valign="top">
+          <center>
+            
+            <table align="center" class="spacer float-center"><tbody><tr><td height="30" style="font-size:30px;line-height:30px;">&nbsp;</td></tr></tbody></table> 
+            
+            <table align="center" class="container radius p-x float-center"><tbody><tr><td>
+            
+              <table class="spacer"><tbody><tr><td height="16" style="font-size:16px;line-height:16px;">&nbsp;</td></tr></tbody></table> 
+            
+              <center>
+                <img src="https://eco-academy-storage.sfo3.digitaloceanspaces.com/public/ef5cb78d029227a2cdca59b8fe4c3b8d.png" alt align="center" class="float-center eco-logo-medium">
+              </center>
+            
+              <table class="spacer"><tbody><tr><td height="30" style="font-size:30px;line-height:30px;">&nbsp;</td></tr></tbody></table> 
+              <table class="row"><tbody><tr>
+                <th class="small-12 large-12 columns first last"><table><tbody><tr><th>
+                  <p><strong>Hola <%= v_user_name %>,</%=></strong></p>
+                </th>
+<th class="expander"></th></tr></tbody></table></th>
+              </tr></tbody></table>
+              <table class="row"><tbody><tr>
+                <th class="small-12 large-12 columns first last"><table><tbody><tr><th>
+                  <p class="text-color-l-gray">
+                    La calificación obtenida en el curso <%= v_course_name %> no es suficiente para aprobar y obtener el certificado/diploma.
+                  </%=></p>
+                </th>
+<th class="expander"></th></tr></tbody></table></th>
+              </tr></tbody></table>
+              <table class="row primary"><tbody><tr>
+                <th class="small-12 large-12 columns first last"><table><tbody><tr><th>
+                  <table class="callout"><tbody><tr><th class="callout-inner">
+                    <p class="text-center">Calificación: <%= v_last_score_obtained %> de <%= v_course_passing_score %></%=></%=></p>
+                  </th><th class="expander"></th></tr></tbody></table>
+                </th>
+<th class="expander"></th></tr></tbody></table></th>
+              </tr></tbody></table>
+              <table class="row"><tbody><tr>
+                <th class="small-12 large-12 columns first last"><table><tbody><tr><th>
+                    <p class="text-color-l-gray">Tiene una última oportunidad para aprobar el curso, por favor ingrese a la plataforma y realice el examen de retake.</p>
+                </th>
+<th class="expander"></th></tr></tbody></table></th>
+              </tr></tbody></table>
+              <table class="row"><tbody><tr>
+                <th class="small-12 large-12 columns first last"><table><tbody><tr><th>
+                  <strong>
+                    <p class="text-color-l-gray">Atentamente,</p>
+                  </strong>
+                </th>
+<th class="expander"></th></tr></tbody></table></th>
+              </tr></tbody></table>
+              <table class="row"><tbody><tr>
+                <th class="small-12 large-12 columns first last"><table><tbody><tr><th>
+                    <p class="text-color-l-gray"><strong>ECO, Corporación Empresarial México SA de CV</strong></p>
+                </th>
+<th class="expander"></th></tr></tbody></table></th>
+              </tr></tbody></table>
+            </td></tr></tbody></table>
+            <table align="center" class="spacer float-center"><tbody><tr><td height="30" style="font-size:30px;line-height:30px;">&nbsp;</td></tr></tbody></table> 
+            
+          </center>
+        </td>
+      </tr>
+    </table>
+    <!-- prevent Gmail on iOS font size manipulation -->
+   <div style="display:none; white-space:nowrap; font:15px courier; line-height:0;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </div>
   </body>
 </html>
+
