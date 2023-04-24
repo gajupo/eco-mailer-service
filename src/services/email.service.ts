@@ -115,11 +115,23 @@ export class EmailService implements IEmailService {
   public async sendUserConstanciaNotificationEmail(SendEmailResponseWithAttachment: SendEmailResponseWithAttachment): Promise<void> {
     const html = await this.templateService.render('user_constancia_notification', SendEmailResponseWithAttachment.data);
     
+    const attachments: Array<{ filename?: string; content: Buffer }> = [];
+
+    for (const attachment of SendEmailResponseWithAttachment.attachments) {
+        // convert the attachment.content to a buffer
+        const buffer = Buffer.from(attachment.content, 'base64');
+        attachments.push({
+            filename: attachment.filename,
+            content: buffer,
+        });
+    }
+
     const sendEmailOptions: SendEmailOptions = {
         to: SendEmailResponseWithAttachment.to,
         subject: SendEmailResponseWithAttachment.subject,
         text: SendEmailResponseWithAttachment.text,
         html,
+        attachments,
     };
     await this.sendEmail(sendEmailOptions);
   }
