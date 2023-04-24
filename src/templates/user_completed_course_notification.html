@@ -1,34 +1,34 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Course Completion</title>
+    <title>Certificate Obtained</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
       body {
-        background-color: #f0f0f0;
+        background-color: #D1D1D1;
         font-family: Arial, sans-serif;
         margin: 0;
         padding: 0;
+        color: #8B8B8B;
       }
       .container {
         background-color: #ffffff;
         border-radius: 15px;
         max-width: 600px;
-        margin: 30px auto;
+        margin: 50px auto;
         padding: 30px;
         box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
       }
       h1 {
-        text-align: center;
+        text-align: left;
         font-size: 24px;
         color: #333;
-        margin-bottom: 15px;
+        margin-bottom: 50px;
       }
       p {
         font-size: 16px;
-        color: #333;
         line-height: 1.5;
-        margin-bottom: 15px;
+        margin-bottom: 50px;
       }
       strong {
         font-weight: bold;
@@ -37,11 +37,18 @@
         display: block;
         max-width: 100%;
         height: auto;
-        margin: 0 auto 20px;
+        margin: 0 auto 50px;
+      }
+      .certificate-number {
+        border: 1px solid #b1b1b1;
+        padding: 15px;
+        text-align: center;
+        margin-bottom: 50px;
+        font-weight: bold;
       }
       @media screen and (max-width: 600px) {
         .container {
-          margin: 15px;
+          margin: 50px 15px;
           padding: 15px;
         }
       }
@@ -49,18 +56,22 @@
   </head>
   <body>
     <div class="container">
-      <img class="logo" src="https://eco-academy-storage.sfo3.digitaloceanspaces.com/public/ef5cb78d029227a2cdca59b8fe4c3b8d.png" alt="Eco Academy Logo">
-      <h1>Congratulations, <%= user.name %>!</h1>
+      <img class="logo" src="https://eco-academy-storage.sfo3.digitaloceanspaces.com/public/ef5cb78d029227a2cdca59b8fe4c3b8d.png" alt="ECO Academy">
+      <h1>Hola <%= templateDate.v_user_name %></h1>
       <p>
-        You have successfully completed the course: <%= course.title %>.
+        Felicidades por completar exitosamente el Training <%= templateDate.v_course_title %> en línea, en el que ha sido considerado <strong>"COMPETENTE"</strong> y lo hace acreedor al certificado adjunto.
+      </p>
+      <div class="certificate-number">
+        Número de Certificado: <%= templateDate.v_certificate_number %>
+      </div>
+      <p>
+        Agradecemos su preferencia en nuestros servicios y sin otro particular, nos reiteramos a sus órdenes.
       </p>
       <p>
-        Score: <%= memberCourseGraded.lastScoreObtained %> out of <%= course.passingMinimumGrade %>
+        Atentamente,
       </p>
       <p>
-        <strong>
-          You can now download your certificate.
-        </strong>
+        <strong>ECO, Corporación Empresarial México SA de CV</strong>
       </p>
     </div>
   </body>
