@@ -1,7 +1,7 @@
 {
   "name": "eco-mailer",
   "version": "1.0.0",
-  "description": "Mailer service for eco academy",
+  "description": "Express.Js REST API to send email based on html templates with Digital Ocean Spaces integration",
   "main": "index.js",
   "author": "Gaudencio Jurado",
   "license": "MIT",
